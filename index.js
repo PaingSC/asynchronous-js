@@ -77,7 +77,7 @@ readFilePro(`${__dirname}/dog.txt`)
 // Using Async/Await
 const getDogPic = async () => {
   try {
-    const data = await readFilePro(`${__dirname}/dog.txt`);
+    const data = await readFilePro(`${__dirname}/dfog.txt`);
     console.log(`Breed: ${data}`);
 
     const res = await superagent(
@@ -89,6 +89,22 @@ const getDogPic = async () => {
     console.log('Random dog image is saved to file 🐶');
   } catch (err) {
     console.log(err);
+
+    throw err;
   }
+  return '2: READY 🐕';
 };
-getDogPic();
+
+/*
+console.log('1: Will get dog pics!');
+// const x = getDogPic();
+// console.log(x);
+getDogPic()
+  .then((x) => {
+    console.log(x);
+    console.log('2: Done getting dog pics!');
+  })
+  .catch((err) => {
+    console.log('ERROR 💥');
+  });
+  */
