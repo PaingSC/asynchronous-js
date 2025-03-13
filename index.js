@@ -1,3 +1,4 @@
+const { error } = require('console');
 const fs = require('fs');
 const { resolve } = require('path');
 const superagent = require('superagent');
@@ -77,7 +78,7 @@ readFilePro(`${__dirname}/dog.txt`)
 // Using Async/Await
 const getDogPic = async () => {
   try {
-    const data = await readFilePro(`${__dirname}/dfog.txt`);
+    const data = await readFilePro(`${__dirname}/dog.txt`);
     console.log(`Breed: ${data}`);
 
     const res = await superagent(
@@ -108,3 +109,28 @@ getDogPic()
     console.log('ERROR 💥');
   });
   */
+
+/*
+console.log('1: Will get dog pics!');
+// getDogPic();
+getDogPic()
+  .then((x) => {
+    console.log(x);
+  })
+  .catch((err) => {
+    console.log(err);
+    console.log('ERROR 🐞!!!');
+  });
+console.log('3: Done getting dog pics!');
+*/
+
+(async () => {
+  try {
+    console.log('1: Will get dog pics!');
+    const x = await getDogPic();
+    console.log(x);
+    console.log('3: Done getting dog pics!');
+  } catch (err) {}
+  {
+  }
+})();
